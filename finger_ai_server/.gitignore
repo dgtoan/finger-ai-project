@@ -1,0 +1,12 @@
+# Python cache files
+*.pyc
+*.pyo
+__pycache__/
+
+# Uploads folder
+uploads/
+persistent_training_artifacts/
+runs/
+
+# Database files
+*.db
