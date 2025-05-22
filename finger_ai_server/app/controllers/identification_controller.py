@@ -21,7 +21,8 @@ class IdentificationController:
             
             return IdentificationResponse(
                 employee_id=result.get("employee_id"),
-                status=result.get("status")
+                status=result.get("status"),
+                identified_image_base64=result.get("identified_image_base64")
             )
         except Exception as e:
             raise HTTPException(

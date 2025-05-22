@@ -9,6 +9,7 @@ class IdentificationResult with _$IdentificationResult {
   const factory IdentificationResult({
     @JsonKey(name: 'employee_id') String? employeeId,
     required String status,
+    @JsonKey(name: 'identified_image_base64') String? identifiedImageBase64,
   }) = _IdentificationResult;
 
   factory IdentificationResult.fromJson(Map<String, dynamic> json) =>

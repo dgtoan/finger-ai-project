@@ -11,6 +11,7 @@ _$IdentificationResultImpl _$$IdentificationResultImplFromJson(
 ) => _$IdentificationResultImpl(
   employeeId: json['employee_id'] as String?,
   status: json['status'] as String,
+  identifiedImageBase64: json['identified_image_base64'] as String?,
 );
 
 Map<String, dynamic> _$$IdentificationResultImplToJson(
@@ -18,4 +19,5 @@ Map<String, dynamic> _$$IdentificationResultImplToJson(
 ) => <String, dynamic>{
   'employee_id': instance.employeeId,
   'status': instance.status,
+  'identified_image_base64': instance.identifiedImageBase64,
 };

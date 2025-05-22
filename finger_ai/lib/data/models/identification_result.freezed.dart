@@ -24,6 +24,8 @@ mixin _$IdentificationResult {
   @JsonKey(name: 'employee_id')
   String? get employeeId => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
+  @JsonKey(name: 'identified_image_base64')
+  String? get identifiedImageBase64 => throw _privateConstructorUsedError;
 
   /// Serializes this IdentificationResult to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,7 +44,11 @@ abstract class $IdentificationResultCopyWith<$Res> {
     $Res Function(IdentificationResult) then,
   ) = _$IdentificationResultCopyWithImpl<$Res, IdentificationResult>;
   @useResult
-  $Res call({@JsonKey(name: 'employee_id') String? employeeId, String status});
+  $Res call({
+    @JsonKey(name: 'employee_id') String? employeeId,
+    String status,
+    @JsonKey(name: 'identified_image_base64') String? identifiedImageBase64,
+  });
 }
 
 /// @nodoc
@@ -62,7 +68,11 @@ class _$IdentificationResultCopyWithImpl<
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? employeeId = freezed, Object? status = null}) {
+  $Res call({
+    Object? employeeId = freezed,
+    Object? status = null,
+    Object? identifiedImageBase64 = freezed,
+  }) {
     return _then(
       _value.copyWith(
             employeeId:
@@ -75,6 +85,11 @@ class _$IdentificationResultCopyWithImpl<
                     ? _value.status
                     : status // ignore: cast_nullable_to_non_nullable
                         as String,
+            identifiedImageBase64:
+                freezed == identifiedImageBase64
+                    ? _value.identifiedImageBase64
+                    : identifiedImageBase64 // ignore: cast_nullable_to_non_nullable
+                        as String?,
           )
           as $Val,
     );
@@ -90,7 +105,11 @@ abstract class _$$IdentificationResultImplCopyWith<$Res>
   ) = __$$IdentificationResultImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'employee_id') String? employeeId, String status});
+  $Res call({
+    @JsonKey(name: 'employee_id') String? employeeId,
+    String status,
+    @JsonKey(name: 'identified_image_base64') String? identifiedImageBase64,
+  });
 }
 
 /// @nodoc
@@ -106,7 +125,11 @@ class __$$IdentificationResultImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? employeeId = freezed, Object? status = null}) {
+  $Res call({
+    Object? employeeId = freezed,
+    Object? status = null,
+    Object? identifiedImageBase64 = freezed,
+  }) {
     return _then(
       _$IdentificationResultImpl(
         employeeId:
@@ -119,6 +142,11 @@ class __$$IdentificationResultImplCopyWithImpl<$Res>
                 ? _value.status
                 : status // ignore: cast_nullable_to_non_nullable
                     as String,
+        identifiedImageBase64:
+            freezed == identifiedImageBase64
+                ? _value.identifiedImageBase64
+                : identifiedImageBase64 // ignore: cast_nullable_to_non_nullable
+                    as String?,
       ),
     );
   }
@@ -130,6 +158,7 @@ class _$IdentificationResultImpl implements _IdentificationResult {
   const _$IdentificationResultImpl({
     @JsonKey(name: 'employee_id') this.employeeId,
     required this.status,
+    @JsonKey(name: 'identified_image_base64') this.identifiedImageBase64,
   });
 
   factory _$IdentificationResultImpl.fromJson(Map<String, dynamic> json) =>
@@ -140,10 +169,13 @@ class _$IdentificationResultImpl implements _IdentificationResult {
   final String? employeeId;
   @override
   final String status;
+  @override
+  @JsonKey(name: 'identified_image_base64')
+  final String? identifiedImageBase64;
 
   @override
   String toString() {
-    return 'IdentificationResult(employeeId: $employeeId, status: $status)';
+    return 'IdentificationResult(employeeId: $employeeId, status: $status, identifiedImageBase64: $identifiedImageBase64)';
   }
 
   @override
@@ -153,12 +185,15 @@ class _$IdentificationResultImpl implements _IdentificationResult {
             other is _$IdentificationResultImpl &&
             (identical(other.employeeId, employeeId) ||
                 other.employeeId == employeeId) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.identifiedImageBase64, identifiedImageBase64) ||
+                other.identifiedImageBase64 == identifiedImageBase64));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, employeeId, status);
+  int get hashCode =>
+      Object.hash(runtimeType, employeeId, status, identifiedImageBase64);
 
   /// Create a copy of IdentificationResult
   /// with the given fields replaced by the non-null parameter values.
@@ -182,6 +217,8 @@ abstract class _IdentificationResult implements IdentificationResult {
   const factory _IdentificationResult({
     @JsonKey(name: 'employee_id') final String? employeeId,
     required final String status,
+    @JsonKey(name: 'identified_image_base64')
+    final String? identifiedImageBase64,
   }) = _$IdentificationResultImpl;
 
   factory _IdentificationResult.fromJson(Map<String, dynamic> json) =
@@ -192,6 +229,9 @@ abstract class _IdentificationResult implements IdentificationResult {
   String? get employeeId;
   @override
   String get status;
+  @override
+  @JsonKey(name: 'identified_image_base64')
+  String? get identifiedImageBase64;
 
   /// Create a copy of IdentificationResult
   /// with the given fields replaced by the non-null parameter values.

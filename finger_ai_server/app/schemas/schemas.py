@@ -66,6 +66,7 @@ class ModelResponse(ModelBase):
 class IdentificationResponse(BaseModel):
     employee_id: Optional[str] = None
     status: str  # 'allowed', 'denied', 'unknown'
+    identified_image_base64: Optional[str] = None
     
     class Config:
         from_attributes = True

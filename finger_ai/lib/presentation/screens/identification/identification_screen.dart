@@ -8,6 +8,7 @@ import 'package:finger_ai/presentation/widgets/error_display_widget.dart';
 import 'package:finger_ai/presentation/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:convert';
 
 class IdentificationScreen extends StatefulWidget {
   const IdentificationScreen({super.key});
@@ -360,6 +361,36 @@ class _IdentificationScreenState extends State<IdentificationScreen> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        if (result.identifiedImageBase64 == null) ...[
+          const Text(
+            'No image identified',
+            style: TextStyle(fontSize: 18, color: Colors.grey),
+          ),
+        ],
+        if (result.identifiedImageBase64 != null) ...[
+          const SizedBox(height: 16),
+          Text(
+            'Identified Region:',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          Container(
+            height: 200,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey.shade400),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(7),
+              child: Image.memory(
+                base64Decode(result.identifiedImageBase64!),
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+        ],
         _buildStatusIcon(result.status),
         const SizedBox(height: 20),
         Text('Status: ${result.status}', style: const TextStyle(fontSize: 18)),
